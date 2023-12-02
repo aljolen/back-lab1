@@ -1,6 +1,14 @@
 from webapp import app
-
+from datetime import date
 
 @app.route("/")
-def hello_world():
-    return "<p>Hello, World!</p>"
+def root():
+    return "Hello user!"
+
+
+@app.route("/healthcheck")
+def health():
+    return {
+        "status": "success",
+        "date": str(date.today())
+    }
